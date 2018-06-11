@@ -1,2 +1,2 @@
 # spoj
-code of problems in spoj
+code of problems on spoj

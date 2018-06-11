@@ -66,7 +66,7 @@ void BS(int L, int R, int W, int V) {
 		res = max(res, V + Max[L]);
 		return;
 	}
-	int M = (L + R) / 2;
+	int M = (L + R) >> 1;
 	if(x[M].X > W) BS(L, M, W, V);
 	else BS(M, R, W, V);
 }

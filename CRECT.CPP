@@ -5,9 +5,7 @@ using namespace std;
 #define TASK "CRECT"                                           
 #define input_file TASK".INP"                                  
 #define output_file TASK".OUT"                                 
-                                                        
-#define SC scanf                                               
-#define PR printf                                              
+                                                          
 #define ST first                                              
 #define ND second                                              
 #define itr(t) vector<t>::iterator                             

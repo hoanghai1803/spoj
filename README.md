@@ -1,2 +1,2 @@
-# spoj
-code of problems on spoj
+# vn.spoj.com
+Code of problems on spoj

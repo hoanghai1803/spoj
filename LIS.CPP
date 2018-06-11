@@ -55,7 +55,7 @@ namespace SOL1 {
         int L = 1, R = m + 1, M;
         int j;
         do {
-            M = (L + R) / 2;
+            M = (L + R) >> 1;
             j = StartOf[M];
             if(a[j] > a[i]) L = M; else R = M;
         } while(L + 1 != R);

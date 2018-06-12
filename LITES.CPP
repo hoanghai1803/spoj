@@ -42,7 +42,7 @@ struct Nodes {
 void Propagation(int id, int L, int R) {
 	if(!Node[id].lazy) return;
 	int t = Node[id].lazy;
-	int M = (L + R) / 2;
+	int M = (L + R) >> 1;
 	Node[id * 2].val = M - L + 1 - Node[id * 2].val;
 	Node[id * 2].lazy = (Node[id * 2].lazy + 1) % 2;
 	Node[id * 2 + 1].val = R - M - Node[id * 2 + 1].val;
@@ -58,7 +58,7 @@ void Update(int id, int L, int R, int u, int v) {
 		return;
 	}
 	Propagation(id, L, R);
-	int M = (L + R) / 2;
+	int M = (L + R) >> 1;
 	Update(id * 2, L, M, u, v);
 	Update(id * 2 + 1, M + 1, R, u, v);
 	Node[id].val = Node[id * 2].val + Node[id * 2 + 1].val;
@@ -68,7 +68,7 @@ int Get_val(int id, int L, int R, int u, int v) {
 	if(L > v || R < u) return 0;
 	if(L >= u && R <= v) return Node[id].val;
 	Propagation(id, L, R);
-	int M = (L + R) / 2;
+	int M = (L + R) >> 1;
 	return Get_val(id * 2, L, M, u, v) + Get_val(id * 2 + 1, M + 1, R, u, v);
 }
 

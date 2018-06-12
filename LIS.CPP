@@ -115,7 +115,7 @@ namespace SOL2 {
         if(i < L || i > R) return;
         Node[id] = max(Node[id], val);
         if(L == R) return;
-        int M = (L + R) / 2;
+        int M = (L + R) >> 1;
         Update(2 * id, L, M, i, val);
         Update(2 * id + 1, M + 1, R, i, val);
     }
@@ -123,7 +123,7 @@ namespace SOL2 {
     int Get_max(int id, int L, int R, int u, int v) {
         if(v < L || u > R) return 0;
         if(u <= L && v >= R) return Node[id];
-        int M = (L + R) / 2;
+        int M = (L + R) >> 1;
         return max(Get_max(id * 2, L, M, u, v), Get_max(id * 2 + 1, M + 1, R, u, v));
     }
 

@@ -53,7 +53,7 @@ void Solve() {
     int i = 1, j = 1;
     for(; i <= n && j <= n; i++) {
         for(; j <= n; j++) if(b[j] > a[i]) break;
-        if(j == 1) res = min(res, abs(a[i] - b[j]));
+        if(j == 1) res = abs(a[i] - b[j]);
         if(j > n) res = min(res, abs(a[i] - b[j - 1]));
         if(j > 1 && j <= n) res = min3(res, abs(a[i] - b[j]), abs(a[i] - b[j - 1]));
     }

@@ -46,11 +46,11 @@ inline int Sub(int x, int y) {
 
 void DP() {
     FOR(i, 0, n)
-        FOR(j, 0, k - 1) F[i][j] = +oo;
+        FOR(j, 0, k - 1) F[i][j] = -oo;
     F[0][0] = 0;
     FOR(i, 1, n)
         FOR(j, 0, k - 1)
-            F[i][j] = min(F[i - 1][j], 1 + F[i - 1][Sub(j, a[i])]);
+            F[i][j] = max(F[i - 1][j], 1 + F[i - 1][Sub(j, a[i])]);
 }
 
 int main() {
@@ -61,7 +61,5 @@ int main() {
     scanf("%d%d", &n, &k);
     FOR(i, 1, n) scanf("%d", &a[i]);
     DP();
-    int Sum = 0;
-    FOR(i, 1, n) Sum += a[i], Sum %= k;
-    printf("%d", n - F[n][Sum]);
+    printf("%d", F[n][0]);
 }
